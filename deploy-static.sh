@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Configure AWS CLI
+# Configure AZURE CLI
 RESOURCE_GROUP="cloud-decision-rg"
 APP_NAME_EAST="cloud-decision-static-east"
 APP_NAME_WEST="cloud-decision-west"
@@ -54,4 +54,3 @@ az staticwebapp create \
 echo ""
 echo "Deployment complete."
 echo "West Europe: https://$APP_NAME_WEST.azurewebsites.net"
-# echo "East US:     https://$APP_NAME_EAST.azurewebsites.net"

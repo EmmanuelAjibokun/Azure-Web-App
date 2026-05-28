@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RESOURCE_GROUP="cloud-decision-rg"
-APP_NAME="cloud-decision-static-east"
+APP_NAME="cloud-decision-east"
 PLAN="cloud-decision-plan-east"
 LOCATION="westeurope"
 APPRUNTIME="NODE:22-lts"

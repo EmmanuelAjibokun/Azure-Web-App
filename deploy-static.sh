@@ -10,11 +10,26 @@ LOCATION_EAST2="eastus2"
 LOCATION_WEST="westeurope"
 SKU="F1"
 
+if ! az account show &>/dev/null; then
+    echo "Not logged in. Run 'az login' first."
+    exit 1
+fi
+
+if az webapp show --name $APP_NAME_WEST --resource-group $RESOURCE_GROUP &>/dev/null; then
+    echo "Web App '$APP_NAME_WEST' is already deployed in '$RESOURCE_GROUP'. Run destroy.sh first if you want to redeploy."
+    exit 1
+fi
+
+if az staticwebapp show --name $APP_NAME_EAST --resource-group $RESOURCE_GROUP &>/dev/null; then
+    echo "Static Web App '$APP_NAME_EAST' is already deployed in '$RESOURCE_GROUP'. Run destroy.sh first if you want to redeploy."
+    exit 1
+fi
+
 # Create resource group
-echo "Creating resource group: $RESOURCE_GROUP in $LOCATION_EAST..."
+echo "Creating resource group: $RESOURCE_GROUP in $LOCATION_WEST..."
 az group create \
     --name $RESOURCE_GROUP \
-    --location $LOCATION_EAST
+    --location $LOCATION_WEST
 
 # Create App Service Plans
 echo "Creating App Service Plan in West Europe..."

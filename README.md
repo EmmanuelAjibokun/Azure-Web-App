@@ -49,6 +49,8 @@ chmod +x deploy-app.sh
 ```
 
 What it does:
+- Checks that you are logged in to the Azure CLI — exits with an error if not
+- Checks if `cloud-decision-east` is already deployed — exits and tells you to run `destroy.sh` first if so
 - Creates the resource group `cloud-decision-rg` if it doesn't exist
 - Creates or updates the App Service Plan `cloud-decision-plan-east`
 - Creates or updates the Web App `cloud-decision-east`
@@ -74,7 +76,9 @@ chmod +x deploy-static.sh
 ```
 
 What it does:
-- Use the resource group `cloud-decision-rg` in West Europe
+- Checks that you are logged in to the Azure CLI — exits with an error if not
+- Checks if `cloud-decision-west` or `cloud-decision-static-east` are already deployed — exits and tells you to run `destroy.sh` first if so
+- Creates the resource group `cloud-decision-rg` in West Europe
 - Creates App Service Plan `cloud-decision-plan-west` (West Europe, F1)
 - Creates Web App `cloud-decision-west` linked to the GitHub repo via manual integration
 - Creates Static Web App `cloud-decision-static-east` (East US 2) linked to the same GitHub repo

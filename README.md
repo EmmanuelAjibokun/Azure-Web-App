@@ -90,6 +90,31 @@ Static Web App: assigned URL shown in Azure portal
 
 ---
 
+## Teardown
+
+To spin down all resources and stop incurring costs, run the destroy script.
+
+```bash
+chmod +x destroy.sh
+./destroy.sh
+```
+
+What it does:
+- Prompts for confirmation before making any changes
+- Checks that you are logged in to the Azure CLI
+- Deletes the resource group `cloud-decision-rg` and everything inside it:
+  - Web Apps `cloud-decision-east` and `cloud-decision-west`
+  - Static Web App `cloud-decision-static-east`
+  - App Service Plans `cloud-decision-plan-east` and `cloud-decision-plan-west`
+
+Deletion is submitted with `--no-wait`, so the command returns immediately and Azure cleans up in the background. You can track progress in the portal:
+
+```
+https://portal.azure.com/#view/HubsExtension/BrowseResourceGroups
+```
+
+---
+
 ## Project Structure
 
 ```
@@ -99,5 +124,6 @@ azure-web-app/
 │   └── package.json
 ├── deploy-app.sh         # Deploys local app via az webapp up
 ├── deploy-static.sh      # Provisions Static Web App + GitHub-linked Web App
+├── destroy.sh            # Tears down all Azure resources
 └── .gitignore
 ```

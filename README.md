@@ -5,6 +5,7 @@ Deploy a Node.js app to Azure using the Azure CLI. This repo contains two deploy
 - [deploy-app.sh](deploy-app.sh) — deploys the local Node.js app from the `app/` folder using `az webapp up`
 - [deploy-static.sh](deploy-static.sh) — provisions a Static Web App (East US 2) and a Web App from GitHub (West Europe)
 
+Here's a blog detailing my experience 👉 https://dev.to/manny300/from-zero-to-multi-region-my-experience-deploying-on-azure-for-the-first-time-cj3
 ---
 
 ## Prerequisites
